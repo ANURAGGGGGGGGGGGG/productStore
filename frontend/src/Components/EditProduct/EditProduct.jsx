@@ -19,7 +19,7 @@ const EditProduct = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:8100/api/products/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/${id}`);
         setProduct(response.data);
         setPreviewImage(response.data.imageUrl || null);
       } catch (err) {
@@ -34,7 +34,7 @@ const EditProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8100/api/products/${id}`, product);
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/products/${id}`, product);
       navigate('/products');
     } catch (err) {
       setError(err.response?.data?.msg || 'Failed to update product');

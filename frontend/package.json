@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-   "homepage": "https://ANURAGGGGGGGGGGGG.github.io/productStore",
+  "homepage": "https://ANURAGGGGGGGGGGGG.github.io",
   "private": true,
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
@@ -10,6 +10,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
     "framer-motion": "^12.4.11",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",

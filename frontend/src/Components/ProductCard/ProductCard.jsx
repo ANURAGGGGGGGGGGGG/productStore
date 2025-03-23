@@ -12,8 +12,8 @@ const ProductCard = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:8100/api/products");
-        // console.log(response.data.data)
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products`);
+        console.log(response)
         setProducts(response.data.data || []);
       } catch (error) {
         setError(error.response?.data?.msg || error.message || 'Failed to fetch products');
@@ -33,7 +33,7 @@ const ProductCard = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:8100/api/products/${productId}`
+        `${process.env.REACT_APP_API_URL}/api/products/${productId}`
       );
       
       if (response.status === 200) {

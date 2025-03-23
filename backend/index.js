@@ -13,9 +13,13 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 // Middlewares
 app.use(helmet());
 app.use(cors({
-  origin: 'http://localhost:3000', // Your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE']
+  origin: [
+    process.env.FRONTEND_URL,
+    'http://localhost:3000'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
