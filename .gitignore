@@ -1,0 +1,13 @@
+# Frontend ignores
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/.DS_Store
+
+# Backend ignores
+backend/node_modules/
+backend/.env
+backend/.DS_Store
+
+# General ignores
+.DS_Store

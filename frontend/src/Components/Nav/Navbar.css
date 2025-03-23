@@ -1,0 +1,221 @@
+:root {
+  /* Navbar Specific Variables */
+  --navbar-bg: var(--secondary-color2);
+  --navbar-text: var(--primary-color);
+  --navbar-padding: 1rem 2rem;
+  --navbar-border: 2px solid var(--border-color-light);
+
+  /* Theme Toggle */
+  --toggle-width: 60px;
+  --toggle-height: 30px;
+  --toggle-thumb-size: 24px;
+  --toggle-light-gradient: linear-gradient(45deg, #3498db, #8e44ad);
+  --toggle-dark-gradient: linear-gradient(45deg, #2c3e50, #34495e);
+
+  /* Navigation Buttons */
+  --nav-btn-spacing: 2rem;
+  --nav-btn-active-bg: rgba(255, 255, 255, 0.15);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--navbar-padding);
+  background-color: var(--navbar-bg);
+  color: var(--navbar-text);
+  transition: all 0.3s ease-out;
+  position: relative;
+  z-index: 1000;
+  gap: 1rem;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-buttons-container {
+  display: flex;
+  gap: var(--nav-btn-spacing);
+  margin: 0 auto;
+
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 18px;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.nav-btn:hover {
+  background-color: var(--nav-btn-active-bg);
+}
+
+.nav-btn.active {
+  background-color: var(--nav-btn-active-bg);
+}
+
+.nav-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-btn.active::after {
+  width: 100%;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Dark Theme Overrides */
+body.dark-theme .navbar {
+  --navbar-bg: #121212d1;
+  --navbar-text: var(--dark-text-color);
+  --nav-btn-active-bg: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .nav-btn::after {
+  background: var(--dark-text-color);
+}
+
+/* Button Styles */
+.btn.add-product {
+  padding: 0.5rem 1rem;
+  border: var(--navbar-border);
+  border-radius: 12px;
+  background-color: var(--background-light);
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn.add-product:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Theme Toggle Styles */
+.theme-toggle-wrapper {
+  position: relative;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+}
+
+.theme-toggle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--toggle-height);
+  background: var(--toggle-light-gradient);
+  cursor: pointer;
+  transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  overflow: hidden;
+}
+
+.theme-toggle {
+  background-size: 200% 200%;
+  background-position: 100% 50%;
+  transition: background-position 0.5s ease;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  width: var(--toggle-thumb-size);
+  height: var(--toggle-thumb-size);
+  background: #ffffff;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+body.dark-theme .theme-toggle {
+  background: var(--toggle-dark-gradient);
+}
+
+body.dark-theme .theme-toggle::before {
+  transform: translateX(calc(var(--toggle-width) - var(--toggle-thumb-size) - 6px));
+}
+
+body.dark-theme .theme-toggle {
+  background-position: 0% 50%;
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nav-buttons-container {
+    gap: 1rem;
+  }
+
+  .nav-btn {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-buttons-container {
+    display: none;
+  }
+
+  .navbar {
+    padding: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar-left {
+    order: 1;
+  }
+
+  .navbar-right {
+    order: 2;
+  }
+}
+
+/* Accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
