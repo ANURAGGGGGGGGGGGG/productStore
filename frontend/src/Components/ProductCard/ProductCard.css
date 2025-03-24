@@ -5,7 +5,6 @@
   --button-padding: 0.75rem 1.5rem;
   --transition-speed: 0.3s ease;
   
-  /* Color variables */
   --edit-color: #4CAF50;
   --edit-hover: #45a049;
   --delete-color: #f44336;
@@ -113,7 +112,6 @@
   transform: translateY(-1px);
 }
 
-/* Loading State */
 .loading-state {
   text-align: center;
   padding: 2rem;
@@ -134,7 +132,6 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Error State */
 .error-state {
   text-align: center;
   padding: 2rem;
@@ -160,7 +157,6 @@
   background: #bb2d3b;
 }
 
-/* Product Grid */
 .product-grid {
   display: grid;
   gap: 1.5rem;
@@ -175,8 +171,6 @@
   overflow: hidden;
 }
 
-/* Rest of your existing card styles */
-/* Responsive Design */
 @media (max-width: 768px) {
   .product-list {
     grid-template-columns: 1fr;
@@ -196,7 +190,6 @@
   }
 }
 
-/* Loading State Animation */
 @keyframes skeleton-loading {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }

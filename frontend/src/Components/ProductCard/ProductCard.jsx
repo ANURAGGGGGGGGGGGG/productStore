@@ -25,7 +25,7 @@ const ProductCard = () => {
   }, []);
 
   const handleEdit = (productId) => {
-    navigate(`/products/edit/${productId}`); // Use the correct path
+    navigate(`/products/edit/${productId}`);
   };
 
   const handleDelete = async (productId) => {

@@ -9,7 +9,6 @@ const AboutUS = () => {
 
   return (
     <div className="home-container">
-      {/* Home Navigation Button */}
       <button 
         className="home-btn"
         onClick={() => navigate('/')}

@@ -1,18 +1,15 @@
 :root {
-  /* Navbar Specific Variables */
   --navbar-bg: var(--secondary-color2);
   --navbar-text: var(--primary-color);
   --navbar-padding: 1rem 2rem;
   --navbar-border: 2px solid var(--border-color-light);
 
-  /* Theme Toggle */
   --toggle-width: 60px;
   --toggle-height: 30px;
   --toggle-thumb-size: 24px;
   --toggle-light-gradient: linear-gradient(45deg, #3498db, #8e44ad);
   --toggle-dark-gradient: linear-gradient(45deg, #2c3e50, #34495e);
 
-  /* Navigation Buttons */
   --nav-btn-spacing: 2rem;
   --nav-btn-active-bg: rgba(255, 255, 255, 0.15);
 }
@@ -98,7 +95,6 @@
   gap: 1.5rem;
 }
 
-/* Dark Theme Overrides */
 body.dark-theme .navbar {
   --navbar-bg: #121212d1;
   --navbar-text: var(--dark-text-color);
@@ -109,7 +105,6 @@ body.dark-theme .nav-btn::after {
   background: var(--dark-text-color);
 }
 
-/* Button Styles */
 .btn.add-product {
   padding: 0.5rem 1rem;
   border: var(--navbar-border);
@@ -125,7 +120,6 @@ body.dark-theme .nav-btn::after {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Theme Toggle Styles */
 .theme-toggle-wrapper {
   position: relative;
   width: var(--toggle-width);
@@ -176,7 +170,6 @@ body.dark-theme .theme-toggle {
 }
 
 
-/* Responsive Design */
 @media (max-width: 1024px) {
   .nav-buttons-container {
     gap: 1rem;
@@ -207,7 +200,6 @@ body.dark-theme .theme-toggle {
   }
 }
 
-/* Accessibility */
 .visually-hidden {
   position: absolute;
   width: 1px;

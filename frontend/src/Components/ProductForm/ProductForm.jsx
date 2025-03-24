@@ -45,7 +45,7 @@ const ProductForm = () => {
         setPreviewImage(null);
         setSuccess(true);
         setTimeout(() => {
-          navigate('/products'); // Auto-redirect after success
+          navigate('/products');
         }, 1500);
       }
     } catch (err) {

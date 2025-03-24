@@ -25,7 +25,6 @@ const ContactUs = () => {
 
   return (
     <div className="contact-container">
-      {/* Home Navigation Button */}
       <button 
         className="home-btn"
         onClick={() => navigate('/')}
