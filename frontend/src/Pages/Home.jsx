@@ -22,7 +22,7 @@ const Home = () => {
           onClick={() => handleNavigation('/products')}
           role="button"
           tabIndex={0}
-          onKeyPress={(e) => e.key === 'Enter' && handleNavigation('/products')}
+          onKeyDown={(e) => e.key === 'Enter' && handleNavigation('/products')}
         >
           <h2>Quality Products</h2>
           <p>We source only the best items for our customers</p>
@@ -34,7 +34,7 @@ const Home = () => {
           onClick={() => handleNavigation('/about')}
           role="button"
           tabIndex={0}
-          onKeyPress={(e) => e.key === 'Enter' && handleNavigation('/about')}
+          onKeyDown={(e) => e.key === 'Enter' && handleNavigation('/about')}
         >
           <h2>About Us</h2>
           <p>Learn more about our story and values</p>
@@ -46,7 +46,7 @@ const Home = () => {
           onClick={() => handleNavigation('/contact')}
           role="button"
           tabIndex={0}
-          onKeyPress={(e) => e.key === 'Enter' && handleNavigation('/contact')}
+          onKeyDown={(e) => e.key === 'Enter' && handleNavigation('/contact')}
         >
           <h2>Contact Us</h2>
           <p>Get in touch with our support team</p>

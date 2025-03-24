@@ -14,8 +14,6 @@ const Main = () => {
     <>
       <Nav onAddProduct={handleAddProduct} />
       <Item />
-      
-      {/* Only Outlet remains - it handles ALL child routes */}
       <Outlet />
     </>
   );

@@ -12,12 +12,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-
-        {/* Nested Routes under Main layout */}
         <Route path="/products" element={<Main />}>
-          <Route index element={<ProductCard />} />          {/* /products */}
-          <Route path="add" element={<ProductForm />} />     {/* /products/add */}
-          <Route path="edit/:id" element={<EditProduct />} /> {/* /products/edit/123 */}
+          <Route index element={<ProductCard />} />
+          <Route path="add" element={<ProductForm />} />
+          <Route path="edit/:id" element={<EditProduct />} />
         </Route>
 
         <Route path="/about" element={<AboutUs />} />
