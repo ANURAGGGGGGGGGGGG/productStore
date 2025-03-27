@@ -10,7 +10,6 @@ const app = express();
 const PORT = process.env.PORT || 8100;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-// Middlewares
 app.use(helmet());
 app.use(cors({
   origin: [
@@ -27,17 +26,14 @@ if (NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100
 });
 app.use(limiter);
 
-// Routes
 app.use('/api/products', require('./routes/productRoutes'));
 
-// Health check
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'ok',
@@ -45,7 +41,6 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// 404 Handler
 app.use((req, res) => {
   res.status(404).json({
     error: 'Endpoint not found',
@@ -53,7 +48,6 @@ app.use((req, res) => {
   });
 });
 
-// Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({
@@ -62,7 +56,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Server initialization
 const startServer = async () => {
   try {
     await Dbconnect();

@@ -12,7 +12,6 @@ async function Dbconnect() {
     console.log(`🗄️  MongoDB Connected: ${connection.connection.host}`);
     console.log(`📁 Database Name: ${connection.connection.name}`);
 
-    // Connection event handlers
     mongoose.connection.on('connected', () => {
       console.log('✅ Mongoose connected to DB');
     });
@@ -25,7 +24,6 @@ async function Dbconnect() {
       console.warn('⚠️  Mongoose disconnected from DB');
     });
 
-    // Graceful shutdown
     process.on('SIGINT', async () => {
       await mongoose.connection.close();
       console.log('⛔ Mongoose connection closed due to app termination');

@@ -1,7 +1,7 @@
 const Product = require("../models/product");
 const mongoose = require("mongoose");
 
-// Helper function for error responses
+
 const errorResponse = (res, statusCode, message, error = null) => {
   const response = {
     success: false,
@@ -11,7 +11,7 @@ const errorResponse = (res, statusCode, message, error = null) => {
   return res.status(statusCode).json(response);
 };
 
-// Validate product data
+
 const validateProductData = (data, isUpdate = false) => {
   const errors = [];
   const { productName, productPrice, imageUrl } = data;
@@ -50,7 +50,6 @@ const isValidUrl = (url) => {
 
 const createProduct = async (req, res) => {
   try {
-    // Convert price to number before saving
     const productData = {
       ...req.body,
       productPrice: parseFloat(req.body.productPrice)
@@ -65,7 +64,7 @@ const createProduct = async (req, res) => {
     });
   } catch (err) {
     console.error("Create product error:", err);
-    return res.status(400).json({ // Change to 400 for client errors
+    return res.status(400).json({
       success: false,
       error: err.message
     });
@@ -87,7 +86,6 @@ const getProduct = async (req, res) => {
       return res.status(200).json({ success: true, data: product });
     }
 
-    // Get all products with pagination
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
@@ -121,7 +119,7 @@ const updateProduct = async (req, res) => {
       return errorResponse(res, 400, "Invalid product ID format");
     }
 
-    // Convert price to number if present
+
     if (updateData.productPrice) {
       updateData.productPrice = parseFloat(updateData.productPrice);
     }
@@ -137,7 +135,7 @@ const updateProduct = async (req, res) => {
       { 
         new: true,
         runValidators: true,
-        overwrite: false // This allows partial updates
+        overwrite: false
       }
     );
 

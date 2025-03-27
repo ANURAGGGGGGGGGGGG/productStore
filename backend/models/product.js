@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const validator = require("validator"); // Install with: npm install validator
+const validator = require("validator");
 
 const productSchema = new mongoose.Schema({
   productName: {
@@ -13,7 +13,7 @@ const productSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Product price is required"],
     min: [0.01, "Price must be at least 0.01"],
-    set: v => parseFloat(v.toFixed(2)) // Store prices with 2 decimal places
+    set: v => parseFloat(v.toFixed(2))
   },
   imageUrl: {
     type: String,
@@ -37,17 +37,17 @@ const productSchema = new mongoose.Schema({
     default: Date.now
   }
 }, {
-  timestamps: false, // We're manually handling timestamps
-  versionKey: false // Disable the __v field
+  timestamps: false,
+  versionKey: false
 });
 
-// Update the updatedAt field before saving
+
 productSchema.pre("save", function(next) {
   this.updatedAt = Date.now();
   next();
 });
 
-// Add text index for search functionality
+
 productSchema.index({ productName: "text" });
 
 const Product = mongoose.model("Product", productSchema);
